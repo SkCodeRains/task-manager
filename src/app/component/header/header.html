@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-3 rounded-3 flex-column">
+    <div class="w-100 navbar navbar-expand-lg ">
+        <a class="navbar-brand" href="#">Create Task</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <div class="form-inline my-2 my-lg-0 flex-fill d-flex gap-3">
+                <input #taskNameInputBox [(ngModel)]="taskName" class="form-control mr-sm-2" type="search"
+                    placeholder="Task Name" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" (click)="addTask()">ADD+</button>
+            </div>
+        </div>
+    </div>
+    <div class="w-100 d-flex justify-content-between">
+        <div>
+            <button class="btn btn-secondary px-4 text-uppercase h4" (click)="prevMonth.emit()">Prev</button>
+        </div>
+        <div>
+            <button class="btn btn-primary  px-4 text-uppercase h4" (click)="nextMonth.emit()">Next</button>
+        </div>
+    </div>
+</nav>

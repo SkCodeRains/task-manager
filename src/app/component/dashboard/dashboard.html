@@ -1,0 +1,9 @@
+<section class="p-5 w-100 h-100 overflow-hidden position-relative">
+
+
+    <app-header (nextMonth)="nextMonth()" (prevMonth)="prevMonth()"
+        (createNewTask)="createNewTask($event)"></app-header>
+
+    <app-table [tasksList]="tasksList()" [selectedMonth]="selectedMonth()"
+        (deleteTaskEvent)="deleteTaskEvent($event)"></app-table>
+</section>

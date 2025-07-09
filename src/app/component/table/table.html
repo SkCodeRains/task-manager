@@ -1,0 +1,45 @@
+@if (tasksList().length>0) {
+<section class="overflow-hidden w-100 py-3 " style="height: calc(100% - 10rem);">
+    <div class="table-responsive bg-white p-2 rounded-3 h-100">
+        <h1>
+            {{selectedMonth().monthName}} {{selectedMonth().year}}
+        </h1>
+        <table class="table overflow-auto  ">
+            <thead>
+                <tr>
+                    <th scope="col">Action</th>
+                    <th scope="col">Task Name</th>
+                    @for (dayIndex of (array( selectedMonth().totalDays)); track $index;let
+                    i=$index) {
+                    <th scope="col" class="text-nowrap">({{i+1}}) {{ getWeakDay(i+1) }}</th>
+                    }
+
+                </tr>
+            </thead>
+            <tbody class="h-100">
+                @for (item of tasksList(); track $index) {
+                <tr>
+                    <th scope="row" class="delete-btn">
+                        <button class="btn btn-outline-danger text-nowrap" (click)="deleteTask(item,$index)">Delete
+                            !</button>
+                    </th>
+                    <th scope="row" class="text-nowrap">{{item.name}}</th>
+                    @for (dayIndex of (array(selectedMonth().totalDays)); track $index;let i=$index) {
+                    <th scope="col" class="text-nowrap ">
+                        <div class="form-group">
+                            <input type="checkbox" id="html+{{i+item.name}}"
+                                [(ngModel)]="item.workDays[selectedMonth().monthName].workedFor[i+1]"
+                                [disabled]="currentDate.getDate()!=i+1 ||  currentMonth()!= selectedMonth().monthName"
+                                (change)="checkBoxChecked(item.workDays[selectedMonth().monthName].workedFor)">
+                            <label for="html+{{i+item.name}}"></label>
+                        </div>
+
+                    </th>
+                    }
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+}
