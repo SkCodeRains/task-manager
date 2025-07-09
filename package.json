@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href '/task-manager/' &&  build.bat",
+    "build": "ng build --base-href '/' &&  build.bat",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
