@@ -1,4 +1,4 @@
-import { Component, computed, input, output, signal } from '@angular/core';
+import { AfterViewInit, Component, computed, input, output, signal } from '@angular/core';
 import { ITask, IWorkDays } from '../../interfaces/interfaces';
 import { FormsModule } from '@angular/forms';
 
@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './table.html',
   styleUrl: './table.scss'
 })
-export class Table {
+export class Table implements AfterViewInit {
 
 
   currentDate = new Date();
@@ -41,6 +41,20 @@ export class Table {
     let cnf = confirm("are you sure you want to delete : " + task.name);
     if (cnf) {
       this.deleteTaskEvent.emit(indexToDelete);
+    }
+  }
+
+  ngAfterViewInit(): void {
+    const activeColumn = document.querySelector('.table .active');
+
+    // 2. Check if the active column exists
+    if (activeColumn) {
+      // 3. Scroll it into view
+      activeColumn.scrollIntoView({
+        behavior: 'smooth', // Use 'auto' for an instant jump
+        inline: 'center',    // Aligns to the left edge of the container
+        block: 'nearest'
+      });
     }
   }
 }

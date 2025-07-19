@@ -11,7 +11,8 @@
                     <th scope="col">Task Name</th>
                     @for (dayIndex of (array( selectedMonth().totalDays)); track $index;let
                     i=$index) {
-                    <th scope="col" class="text-nowrap">({{i+1}}) {{ getWeakDay(i+1) }}</th>
+                    <th scope="col" class="text-nowrap" [class.active]="(i+1)==currentDate.getDate()">({{i+1}}) {{
+                        getWeakDay(i+1) }}</th>
                     }
 
                 </tr>
