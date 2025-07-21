@@ -1,6 +1,7 @@
 @if (tasksList().length>0) {
 <section class="overflow-hidden w-100 py-3 " style="height: calc(100% - 10rem);">
-    <div class="table-responsive bg-white p-2 rounded-3 h-100">
+    <div class="table-responsive bg-white p-2 rounded-3 h-100 ">
+        <button class="btn btn-dark rounded-5 end-0 position-absolute mx-5" (click)="center()">C</button>
         <h1>
             {{selectedMonth().monthName}} {{selectedMonth().year}}
         </h1>

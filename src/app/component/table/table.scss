@@ -47,4 +47,29 @@
         border-color: #bfb;
     }
 
+
+    /* --- For the FIRST sticky column --- */
+    .table-responsive th:first-child,
+    .table-responsive td:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        /* A higher z-index ensures it's on top */
+        background-color: #fff;
+        /* Match your table's background */
+
+        /* Set a defined width for the first column */
+        min-width: 150px;
+    }
+
+    /* --- For the SECOND sticky column --- */
+    .table-responsive th:nth-child(2),
+    .table-responsive td:nth-child(2) {
+        position: sticky;
+        /* The left offset MUST be the width of the first column */
+        left: 150px;
+        z-index: 1;
+        background-color: #fff;
+        /* Match your table's background */
+    }
 }

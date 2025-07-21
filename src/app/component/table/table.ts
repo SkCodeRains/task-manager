@@ -45,6 +45,10 @@ export class Table implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.center();
+  }
+
+  center() {
     const activeColumn = document.querySelector('.table .active');
 
     // 2. Check if the active column exists
